@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_main);
 
@@ -34,8 +35,10 @@ public class MainActivity extends Activity {
 	    final ArrayList <String> todoItems = new ArrayList <String>();
 	    final ArrayAdapter <String> aa;
 	    aa = new ArrayAdapter <String> (this, android.R.layout.simple_list_item_1, todoItems);
+	    
 	    ListOfToDos.setAdapter(aa);
 	    OnKeyListener listener = new OnKeyListener(){
+	    	
 	        public boolean onKey (View v, int keyCode, KeyEvent event){
 	            if(keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.getAction()!=KeyEvent.ACTION_DOWN){
 	                todoItems.add(0, AddedText.getText().toString());
@@ -44,6 +47,7 @@ public class MainActivity extends Activity {
 	                aa.notifyDataSetChanged();
 	                return true;
 	            }
+	            
 	            else return false;
 	    	}
 	    };
